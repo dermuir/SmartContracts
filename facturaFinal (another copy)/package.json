@@ -1,0 +1,27 @@
+{
+  "name": "facturafinal",
+  "version": "1.0.0",
+  "description": "Pagina de Facturacion Online",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "author": "Kito",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.1",
+    "ethers": "^4.0.27",
+    "express": "^4.16.4",
+    "lite-server": "^2.0.1",
+    "node.js": "0.0.0",
+    "truffle-hdwallet-provider": "^1.0.5",
+    "web3": "github:ethereum/web3.js"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.2.1",
+    "ws": "3.3.2"
+  }
+}

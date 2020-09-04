@@ -1,0 +1,19 @@
+{
+  "name": "testweb3",
+  "version": "1.0.0",
+  "description": "Proyecto curso solidity Grupo GarSa",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GarVaz - Luis Miguel Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "ganache-cli": "^6.1.8",
+    "web3": "github:ethereum/web3.js"
+  }
+}

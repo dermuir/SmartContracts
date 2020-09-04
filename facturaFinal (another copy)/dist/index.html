@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Facturas Online Dist</title>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="../src/css/index.css">
+</head>
+<body>
+  <div class="signupSection">
+      
+  <div class="info">
+    <h2>Sistema de facturacion descentralizado</h2>
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+    <p>The Future Is Here</p>
+  </div>
+<!--Aqui se encuentran los parametros a agregar-->
+  <div className="main-container" id="main-container">
+    <div className="block" id="titulo"></div>  
+    <hr/>
+    <div id="botonesPrincipales">
+      <button type="button" onclick="App.frmTodasF()">Ver todas las facturas</button>
+      <button type="button" onclick="App.frmUnaF()">Ver una factura</button>
+      <button type="button">Aregar nuevas facturas</button>
+    </div>    
+    <div className="block" id="agregarFacturas">
+    </div>
+    <div className="block" id="block"></div>
+  </div>
+  
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../node_modules/web3/dist/web3.min.js"></script>
+<script src="../src/js/truffle-contract.js"></script>
+<script src="../src/js/index.js"></script>
+
+</body>
+</html>
