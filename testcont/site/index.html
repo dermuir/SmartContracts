@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./main.css">
+
+    <script src="./web3.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+      <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
+
+        <h1>Instructor del curso</h1>
+
+        <h2 id="instructor"></h2>
+
+        <label for="name" class="col-lg-2 control-label">Nombre Instructor</label>
+        <input id="name" type="text">
+
+        <label for="name" class="col-lg-2 control-label">Edad Instructor</label>
+        <input id="age" type="text">
+
+        <button id="button">Update Instructor</button>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+    //    if (typeof web3 !== 'undefined') {
+    //         web3 = new Web3(web3.currentProvider);
+    //     } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            //var web3 = new Web3(new Web3.providers.IpcProvider('/Users/garvazsof/Library/Ethereum/geth.ipc', net)); // mac os path
+
+        //}
+
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        var CoursetroContract = web3.eth.contract([
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "miInstructor",
+      "outputs": [
+        {
+          "name": "fName",
+          "type": "string"
+        },
+        {
+          "name": "age",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "misCursos",
+      "outputs": [
+        {
+          "name": "nombreCurso",
+          "type": "string"
+        },
+        {
+          "name": "nSesiones",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ncursos",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "age",
+          "type": "uint256"
+        }
+      ],
+      "name": "Instructor",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_fName",
+          "type": "string"
+        },
+        {
+          "name": "_age",
+          "type": "uint256"
+        }
+      ],
+      "name": "setInstructor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getInstructor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_nsesiones",
+          "type": "uint256"
+        }
+      ],
+      "name": "registraCurso",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCursoByID",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]);
+        var Coursetro = CoursetroContract.at('0xf2766ff988a458a9a5c6d74e6a34c425716fb228');
+        var instEvent = Coursetro.Instructor();
+        console.log(Coursetro);
+
+        $("#button").click(function() {
+            Coursetro.setInstructor($("#name").val(), $("#age").val());
+        });
+
+       instEvent.watch(function(error, result){
+            if (!error)
+                {
+                    $("#loader").hide();
+                    $("#instructor").html(result.args.name + ' (' + result.args.age + ' years old)');
+                } else {
+                    $("#loader").hide();
+                    console.log(error);
+                }
+        }); 
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "testcont",
+  "version": "1.0.0",
+  "description": "Proyecto de prueba del curso de blockchain",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Miguel",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^1.0.0-beta.36"
+  }
+}
